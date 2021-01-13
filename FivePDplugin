@@ -1,0 +1,24 @@
+using System.Threading.Tasks;
+using FivePD.API;
+using CitizenFX.Core.Native;
+
+namespace CADcall
+{
+    public class Cadcall
+    {
+        public class Plugin : FivePD.API.Plugin
+        {
+
+            internal Plugin()
+            {
+                Events.OnCalloutAccepted += OnCalloutAccepted;
+            }
+
+            public async Task OnCalloutAccepted(FivePD.API.Callout callout)
+            {
+                API.ExecuteCommand("fivepdcad");
+
+            }
+        }
+    }
+}
